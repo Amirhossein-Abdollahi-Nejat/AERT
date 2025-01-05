@@ -438,8 +438,7 @@ section {
 }
 
 .play-icon:before {
-    font-family: Yekan
-    ;
+    font-family: "fontAwesome";
     content: '\f144';
     speak: none;
     font-size: 74px;
@@ -575,7 +574,7 @@ section {
 }
 
 #nav-trigger span:after {
-    font-family: Yekan;
+    font-family: "fontAwesome";
     display: inline-block;
     width: 38px;
     height: 71px;
@@ -732,7 +731,7 @@ h1 {
 
 h2 {
     padding: 14px 0;
-    font-family: Yekan;
+    font-family: "fontAwesome";
 }
 
 h3 {
@@ -848,7 +847,6 @@ h6 {
 .icon-block h4 {
     font-weight: bold;
     padding-top: 0;
-    font-family: Yekan;
 }
 
 .icon-block .icon {
@@ -982,8 +980,6 @@ h6 {
 .testimonial q {
     display: block;
     font-size: 14px;
-    font-style: italic;
-    margin: 10px 0;
 }
 
 .testimonial footer {
@@ -1023,7 +1019,7 @@ h6 {
     }
 
     .linkedin-icon {
-        margin-top: 50px; /* Less margin on mobile */
+        margin-top: 20px; /* Less margin on mobile */
     }
 }
 
@@ -1171,7 +1167,7 @@ h6 {
         cursor: pointer;
         text-align: center;
         color: #fff;
-        font-family: Yekan;
+        font-family: "fontAwesome";
         font-size: 22px;
         opacity: 0.5;
         -webkit-transition: all 0.3s ease-out;
@@ -1220,7 +1216,7 @@ h6 {
 @media all {
     .featherlight-next,
     .featherlight-previous {
-        font-family: Yekan;
+        font-family: "fontAwesome";
         font-size: 22px;
         display: block;
         position: absolute;
@@ -1410,7 +1406,7 @@ h6 {
 }
 
 #slvj-close-icon:before {
-    font-family: Yekan;
+    font-family: "fontAwesome";
     color: #fff;
     content: '\f00d';
     font-size: 22px;
@@ -1435,9 +1431,44 @@ h6 {
 
 /* --------- 6.6 Clients ---------- */
 
+#clients {
+    padding: 0 15px;
+}
+
+#clients .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#clients .col-3 {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.section-heading {
+    text-align: right;  /* Aligning the text to the left */
+}
+
+.section-title {
+    font-family: Yekan;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-family: Yekan;
+    font-size: 16px;
+    max-width: 100%;
+    line-height: 1.5;
+    margin: 0;
+    text-align: right;  /* Aligning the text to the left */
+    width: 90%;
+}
+
+/* Client Overlay Effects */
 #clients a {
     display: block;
-    text-align: center;
     position: relative;
     text-transform: uppercase;
     font-weight: bold;
@@ -1452,17 +1483,13 @@ h6 {
 .client-overlay {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
-    top;
-    0;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
 
@@ -1477,6 +1504,93 @@ h6 {
     width: 100%;
     text-align: center;
     display: inline-block;
+}
+
+/* Contact Info Section Styles */
+.contact-info {
+    font-family: Yekan;
+    margin-bottom: 50px;
+}
+
+.contact-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.contact-info a {
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .contact-info {
+        text-align: center; /* Center the contact info on mobile */
+        padding: 0 15px;
+    }
+
+    .contact-info h3 {
+        font-size: 18px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h3 {
+        font-size: 16px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+}
+
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 20px;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .col-3 {
+        width: 100%;
+    }
+
+    .client-overlay span {
+        font-size: 14px;
+        top: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 18px;
+    }
+
+    .section-subtitle {
+        font-size: 12px;
+    }
+
+    .client-overlay span {
+        font-size: 12px;
+    }
 }
 
 /* --------- 6.7 Pricing Table ---------- */
@@ -1554,6 +1668,8 @@ h6 {
 
 #landing-footer {
     clear: both;
+    background-color: #ccc;
+    padding-top: 20px;
 }
 
 #landing-footer .row {
@@ -1577,7 +1693,7 @@ h6 {
 
 #scrollUp {
     bottom: 15px;
-    right: 30px;
+    left: 30px; /* Moved to the left side */
     width: 70px;
     height: 80px;
     margin-bottom: -10px;
@@ -1596,7 +1712,8 @@ h6 {
 }
 
 #scrollUp:before {
-    background: Yekan;
+    background: #ccc;
+    font-family: "fontawesome";
     font-size: 2.4em;
     font-style: normal;
     font-weight: normal;
@@ -1608,6 +1725,7 @@ h6 {
     line-height: 45px;
     content: "\f106";
     opacity: 1;
+    border-radius: 30px;
 }
 
 /*Preloader*/
