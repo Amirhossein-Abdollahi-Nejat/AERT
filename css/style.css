@@ -953,51 +953,80 @@ h6 {
 
 /* --------- 6.3 Testimonials ---------- */
 
-.testimonial {
-    padding: 15px;
+.testimonials-container {
+    display: flex; /* Keeps all testimonials in one row */
+    justify-content: center; /* Centers the testimonials */
+    gap: 20px; /* Space between each testimonial */
+    padding: 20px 0;
 }
 
-blockquote {
-    position: relative;
+.testimonial {
+    width: 300px; /* Fixed width */
+    height: 350px; /* Fixed height */
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    overflow: hidden; /* Prevents the text from overflowing */
 }
 
 .testimonial img {
-    max-height: 120px;
-    border-radius: 250em;
+    max-height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.testimonial q {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    margin: 10px 0;
 }
 
 .testimonial footer {
-    padding-top: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #555;
+    padding-top: 10px;
 }
 
-/* Style Classic - Avatar above Testimonial */
-
-.testimonial.classic img {
-    display: inline-block;
-    margin-bottom: 25px;
-}
-
-.testimonial.classic q {
+/* Add this style to your existing CSS */
+.linkedin-icon {
     display: block;
+    text-align: center;
+    margin-top: 50px;
 }
 
-.testimonial.classic footer:before {
-    display: block;
-    content: "";
-    width: 30px;
-    height: 4px;
-    margin: 10px auto 15px auto;
+.linkedin-icon i {
+    font-size: 40px; /* Make the icon larger */
+    color: #0077b5; /* LinkedIn blue color */
+    transition: color 0.3s ease;
 }
 
-/* Style Big */
-
-.testimonial.bigtest {
-    padding-top: 0;
+.linkedin-icon:hover i {
+    color: #005b8c; /* Darker blue on hover */
 }
 
-.testimonial.bigtest q {
-    font-size: 22px;
+/* Mobile responsiveness */
+@media (max-width: 768px) { 
+    .testimonials-container {
+        flex-direction: column; /* Stack testimonials vertically */
+        align-items: center; /* Center-align the items */
+    }
+
+    .testimonial {
+        width: 90%; /* Make them take most of the screen width */
+        height: 350px; /* Keep the height fixed */
+    }
+
+    .linkedin-icon {
+        margin-top: 50px; /* Less margin on mobile */
+    }
 }
+
 
 /* --------- 6.4 Gallery ---------- */
 
