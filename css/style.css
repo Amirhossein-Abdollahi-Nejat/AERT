@@ -774,6 +774,7 @@ h6 {
 .section-subtitle {
     font-size: 18px;
     padding-top: 0;
+    
 }
 
 .section-heading h3 {
@@ -782,6 +783,7 @@ h6 {
     color: #ccc;
     letter-spacing: 2px;
     padding-bottom: 0;
+    
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -846,6 +848,7 @@ h6 {
 .icon-block h4 {
     font-weight: bold;
     padding-top: 0;
+    font-family: Yekan;
 }
 
 .icon-block .icon {

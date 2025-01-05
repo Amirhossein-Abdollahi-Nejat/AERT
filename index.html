@@ -29,6 +29,9 @@
 
     <!--Google Webfonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
 </head>
 <body style="font-family: Yekan;">
 
@@ -60,7 +63,7 @@
                     <div id="logo">
 
                         <!--Logo that is shown on the banner-->
-                        <h1>AERT</h1>
+                        <img src="images/logo.png" id="banner-logo" alt="Landing Page"/>
                         <!--End of Banner Logo-->
 
                         <!--The Logo that is shown on the sticky Navigation Bar-->
@@ -69,6 +72,7 @@
 
                     </div>
                     <!--End of Logo-->
+
 
                     <aside>
 
@@ -144,73 +148,60 @@
 
                 <div class="col-3">
                     <div class="section-heading">
-                        <h3>SUCCESS</h3>
-                        <h2 class="section-title">How We Help You To Sell Your Product</h2>
-                        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!</p>
+                        <h2 class="section-title" style="font-family: Yekan;">ربات نجات هوشمند</h2>
+                        <p class="section-subtitle" style="font-family: Yekan;">ربات نجات هوشمند با استفاده از هوش مصنوعی، سنسورها و ROS2، افراد را در محیط‌های خطرناک شناسایی کرده، مسیر‌یابی هوشمند انجام داده و اطلاعات حیاتی را برای عملیات امداد ارسال می‌کند.</p>
                     </div>
 
                 </div>
 
                 <div class="col-2-3">
 
-                    <!--Icon Block-->
+                    <!-- Icon Block: Processing with ROS2 -->
                     <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.1s">
-                        <!--Icon-->
                         <div class="icon">
-                            <i class="fa fa-html5 fa-2x"></i>
+                            <i class="bi bi-cpu fa-2x"></i> 
                         </div>
-                        <!--Icon Block Description-->
                         <div class="icon-block-description">
-                            <h4>HTML5 &amp; CSS3</h4>
-                            <p>Has ne tritani atomorum conclusionemque, in dolorum volumus cotidieque eum. At vis choro
-                                neglegentur iudico</p>
+                            <h4>پردازش و کنترل با ROS2</h4>
+                            <p>استفاده از Raspberry Pi و سیستم ROS2 امکان مدیریت سنسورها، کنترل حرکت، پردازش داده‌ها و هماهنگی وظایف ربات را فراهم می‌کند. این ساختار ماژولار، توسعه و ارتقای ربات را آسان‌تر می‌کند.</p>
                         </div>
                     </div>
-                    <!--End of Icon Block-->
-
-                    <!--Icon Block-->
+                
+                    <!-- Icon Block: AI Human Detection -->
                     <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.3s">
-                        <!--Icon-->
                         <div class="icon">
-                            <i class="fa fa-bolt fa-2x"></i>
+                            <i class="bi bi-robot fa-2x"></i>
                         </div>
-                        <!--Icon Block Description-->
                         <div class="icon-block-description">
-                            <h4>Easy to Use</h4>
-                            <p>Cu vero ipsum vim, doctus facilisi sea in. Eam ex falli honestatis repudiandae, sit
-                                detracto mediocrem disputationi</p>
+                            <h4>تشخیص انسان با هوش مصنوعی</h4>
+                            <p>ربات از سنسور راداری برای اندازه‌گیری ضربان قلب و نرخ تنفس استفاده کرده و با کمک مدل یادگیری عمیق، انسان را از حیوانات تشخیص می‌دهد. این قابلیت به یافتن افراد زیر آوار یا در شرایط اضطراری کمک می‌کند.</p>
                         </div>
                     </div>
-                    <!--End of Icon Block-->
-
-                    <!--Icon Block-->
+                
+                    <!-- Icon Block: Environmental Data -->
                     <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
-                        <!--Icon-->
                         <div class="icon">
-                            <i class="fa fa-tablet fa-2x"></i>
+                            <i class="bi bi-speedometer2 fa-2x"></i>
                         </div>
-                        <!--Icon Block Description-->
                         <div class="icon-block-description">
-                            <h4>Fully Responsive</h4>
-                            <p>سلام</p>
+                            <h4>تشخیص شرایط محیطی و ارسال داده</h4>
+                            <p>سنسورهای مختلف، اطلاعاتی مانند دما، رطوبت، فشار، گازهای خطرناک و لرزش‌ها را جمع‌آوری کرده و به مرکز کنترل ارسال می‌کنند. این اطلاعات برای ارزیابی شرایط محیطی و اتخاذ تصمیمات بهتر در عملیات نجات استفاده می‌شوند.</p>
                         </div>
                     </div>
-                    <!--End of Icon Block-->
-
-                    <!--Icon Block-->
+                
+                    <!-- Icon Block: GPS & Navigation -->
                     <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
-                        <!--Icon-->
                         <div class="icon">
-                            <i class="fa fa-rocket fa-2x"></i>
+                            <i class="bi bi-compass fa-2x"></i>
                         </div>
-                        <!--Icon Block Description-->
                         <div class="icon-block-description">
-                            <h4>Parallax Effect</h4>
-                            <p>Id porro tritani recusabo usu, eum intellegam consequuntur et. Fugit debet ea sit, an pro
-                                nemore vivendum</p>
+                            <h4>موقعیت‌یابی و مسیریابی هوشمند</h4>
+                            <p>ربات با کمک GPS، سنسورهای حرکتی و پردازش تصویر، مسیر خود را مشخص کرده و در محیط‌های پیچیده و ناپایدار حرکت می‌کند. قابلیت تشخیص موانع و اصلاح مسیر به آن کمک می‌کند تا بدون دخالت انسانی به سمت هدف حرکت کند.</p>
                         </div>
                     </div>
+                
+                </div>
+                
                     <!--End of Icon Block-->
 
                 </div>
