@@ -959,8 +959,8 @@ h6 {
 }
 
 .testimonial {
-    width: 300px; /* Fixed width */
-    height: 350px; /* Fixed height */
+    width: 360px; /* Fixed width */
+    height: 330px; /* Fixed height */
     background: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -993,7 +993,7 @@ h6 {
 .linkedin-icon {
     display: block;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .linkedin-icon i {
