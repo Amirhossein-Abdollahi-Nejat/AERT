@@ -396,6 +396,7 @@ section {
     display: inline-block;
     border-width: 3px;
     border-style: solid;
+    border-radius: 10px;
 }
 
 /* Play Button */
@@ -2499,7 +2500,3 @@ h6 {
     }
 
 }
-
-
-
-
