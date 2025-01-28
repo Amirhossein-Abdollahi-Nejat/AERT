@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/form.css">
-
+    <link rel="stylesheet" href="css/popup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <title>ثبت سفارش</title>
-    
     <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
-
 </head>
 <body>
     <div class="container">
@@ -40,44 +39,76 @@
             </div>
 
             <div class="form-group">
-                <label for="details">جزئیات سفارش</label>
-                <textarea id="details" name="details" required></textarea>
+                <label for="details">جزئیات سفارش <small>(اختیاری)</small></label>
+                <textarea id="details" name="details"></textarea>
             </div>
 
             <button type="submit">ثبت سفارش</button>
-            <div id="loading" class="loading">در حال ثبت سفارش...</div>
         </form>
+    </div>
+
+    <!-- پس‌زمینه‌ی پاپ‌آپ -->
+    <div class="overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <i class="icon bi bi-check-circle-fill success"></i>
+            <h2>ثبت سفارش موفق!</h2>
+            <p>سفارش شما با موفقیت ثبت شد.</p>
+            <button id="popupButton">باشه</button>
+        </div>
     </div>
 
     <script>
         const form = document.getElementById('orderForm');
-        const loadingDiv = document.getElementById('loading');
-        
+        const overlay = document.getElementById('popupOverlay');
+        const popupButton = document.getElementById('popupButton');
+
         // اینجا URL اسکریپت Google Apps خود را قرار دهید
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzu4c4bZxXEj3Xxj2xKBLdrGSaMtPliJe7M3tBFlHHXufyTYQRl6ECExbw6r0kli3cB-Q/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            loadingDiv.style.display = 'block';
-    
-       // افزودن تاریخ به داده‌های فرم
-        const formData = new FormData(form);
-        formData.append('date', new Date().toLocaleString('fa-IR'));
 
-        fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => {
-            loadingDiv.style.display = 'none';
-            alert('سفارش شما با موفقیت ثبت شد');
-            form.reset();
-            // هدایت به صفحه اصلی
-            window.location.href = 'index.html'; // آدرس صفحه اصلی را اینجا بگذارید
-        })
-        .catch(error => {
-            loadingDiv.style.display = 'none';
-            alert('متأسفانه مشکلی در ثبت سفارش پیش آمد. لطفاً دوباره تلاش کنید.');
-            console.error('Error!', error.message);
+            // نمایش لودینگ در پاپ‌آپ
+            overlay.style.display = 'flex';
+            const popup = document.getElementById('popup');
+            popup.innerHTML = `<i class="icon bi bi-hourglass-split"></i>
+                               <h2>در حال ثبت سفارش...</h2>`;
+
+            // افزودن تاریخ به داده‌های فرم
+            const formData = new FormData(form);
+            formData.append('date', new Date().toLocaleString('fa-IR'));
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => {
+                // تغییر محتوای پاپ‌آپ به موفقیت
+                popup.innerHTML = `
+                    <i class="icon bi bi-check-circle-fill success"></i>
+                    <h2>ثبت سفارش موفق!</h2>
+                    <p>سفارش شما با موفقیت ثبت شد.</p>
+                    <button id="popupButton">باشه</button>
+                `;
+                const popupButton = document.getElementById('popupButton');
+                popupButton.addEventListener('click', () => {
+                    overlay.style.display = 'none';
+                    form.reset();
+                    window.location.href = 'index.html'; // آدرس صفحه اصلی را اینجا قرار دهید
+                });
+            })
+            .catch(error => {
+                // تغییر محتوای پاپ‌آپ به خطا
+                popup.innerHTML = `
+                    <i class="icon bi bi-x-circle-fill error"></i>
+                    <h2>خطا در ثبت سفارش</h2>
+                    <p>متأسفانه مشکلی پیش آمد. لطفاً دوباره تلاش کنید.</p>
+                    <button id="popupButton">باشه</button>
+                `;
+                const popupButton = document.getElementById('popupButton');
+                popupButton.addEventListener('click', () => {
+                    overlay.style.display = 'none';
+                });
+                console.error('Error!', error.message);
+            });
         });
-});
     </script>
 </body>
 </html>

@@ -133,8 +133,6 @@ a:hover, #header.nav-solid nav a:hover {
     #banner {
         background: url("../images/banner-images/phone.jpg") no-repeat center top;
     }
-
-
 }
 
 
@@ -272,10 +270,11 @@ h6 {
 /* Button Text */
 
 .button, input[type="submit"]  {
-    font-family: 'Open Sans', sans-serif, Arial, Helvetica;
+    font-family: Yekan;
     font-size:14px;
     font-weight:bold;
     color:#111;
+    background-color: #d2b356;
 }
 
 
@@ -289,8 +288,8 @@ h6 {
 /* Button Hover Color */
 
 .button:hover,  input[type="submit"]:hover {
-    border-color:#d2b356;
-    color:#d2b356;
+    background-color: #b59a4a;
+    color: #111;   
 }
 
 
@@ -316,8 +315,8 @@ h6 {
 /* Button Hover Color */
 
 #banner .button:hover {
-    color:#d2b356;
-    border-color:#d2b356;
+    background-color: #b59a4a;
+
 }
 
 

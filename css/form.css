@@ -89,3 +89,86 @@ button:hover{
     background-color: #8f7a3e;
 }
 
+/* استایل برای پس‌زمینه‌ی تیره */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* استایل برای دیالوگ */
+.popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: scale(0);
+    animation: scaleUp 0.3s ease-in-out forwards;
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.popup p {
+    font-size: 1.1em;
+}
+
+.popup .success {
+    color: green;
+}
+
+.popup .error {
+    color: red;
+}
+
+.popup button {
+    background: #d2b356;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup button:hover {
+    background: #8f7a3e;
+}
+
+/* استایل برای آیکون‌ها */
+.popup .icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
