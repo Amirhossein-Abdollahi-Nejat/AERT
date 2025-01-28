@@ -1,0 +1,91 @@
+@font-face {
+    font-family: Yekan;
+    src: url(../fonts/IRANSansWeb.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Yekan;
+}
+
+body {
+    background: url('../images/form-back.jpg') no-repeat center center fixed; /* تصویر پس‌زمینه */
+    background-size: cover;
+    padding: 30px;
+    margin: 0;
+    font-family: Yekan;
+    position: relative;
+    height: auto;
+    overflow: auto;
+}
+
+.container {
+    max-width: 350px; /* کاهش عرض فرم */
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px; /* کاهش پدینگ داخل فرم */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* کاهش فاصله پایین */
+    font-size: 25px; /* کاهش اندازه فونت */
+}
+
+.form-group {
+    margin-bottom: 15px; /* کاهش فاصله بین گروه‌ها */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 14px; /* کاهش اندازه فونت */
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px; /* کاهش پدینگ داخلی فیلدها */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px; /* کاهش اندازه متن داخل فیلدها */
+}
+
+textarea {
+    height: 50px; /* کاهش ارتفاع تکست‌اریا */
+    resize: vertical;
+}
+
+button {
+    background-color: #d2b356;
+    color: white;
+    padding: 10px 15px; /* کاهش اندازه دکمه */
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    width: 100%;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+    
+
+button:hover{
+    background-color: #8f7a3e;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+button:hover{
+    background-color: #8f7a3e;
+}
+

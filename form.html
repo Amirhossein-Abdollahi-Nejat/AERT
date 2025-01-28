@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form.css">
+
+    <title>ثبت سفارش</title>
+    
+    <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
+
+</head>
+<body>
+    <div class="container">
+        <h1>فرم ثبت سفارش</h1>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">نام</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">شماره تماس</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">آدرس</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="orderType">نوع سفارش</label>
+                <select id="orderType" name="orderType" required>
+                    <option value="">انتخاب کنید</option>
+                    <option value="purchase">ربات زنده یاب هوشمند</option>
+                    <option value="aiSoftware">نرم‌افزار هوش مصنوعی</option>
+                    <option value="aiHardware">سخت‌افزار هوش مصنوعی</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="details">جزئیات سفارش</label>
+                <textarea id="details" name="details" required></textarea>
+            </div>
+
+            <button type="submit">ثبت سفارش</button>
+            <div id="loading" class="loading">در حال ثبت سفارش...</div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('orderForm');
+        const loadingDiv = document.getElementById('loading');
+        
+        // اینجا URL اسکریپت Google Apps خود را قرار دهید
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzu4c4bZxXEj3Xxj2xKBLdrGSaMtPliJe7M3tBFlHHXufyTYQRl6ECExbw6r0kli3cB-Q/exec';
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            loadingDiv.style.display = 'block';
+    
+       // افزودن تاریخ به داده‌های فرم
+        const formData = new FormData(form);
+        formData.append('date', new Date().toLocaleString('fa-IR'));
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+            loadingDiv.style.display = 'none';
+            alert('سفارش شما با موفقیت ثبت شد');
+            form.reset();
+            // هدایت به صفحه اصلی
+            window.location.href = 'index.html'; // آدرس صفحه اصلی را اینجا بگذارید
+        })
+        .catch(error => {
+            loadingDiv.style.display = 'none';
+            alert('متأسفانه مشکلی در ثبت سفارش پیش آمد. لطفاً دوباره تلاش کنید.');
+            console.error('Error!', error.message);
+        });
+});
+    </script>
+</body>
+</html>
