@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم نظرسنجی</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>فرم نظرسنجی</h1>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="name">نام و نام خانوادگی *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">ایمیل (اختیاری)</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="satisfaction">میزان رضایت شما *</label>
+                <select id="satisfaction" name="satisfaction" required>
+                    <option value="">لطفا انتخاب کنید</option>
+                    <option value="عالی">عالی</option>
+                    <option value="خوب">خوب</option>
+                    <option value="متوسط">متوسط</option>
+                    <option value="ضعیف">ضعیف</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">نظرات و پیشنهادات *</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+            </div>
+
+            <button type="submit">ثبت نظر</button>
+        </form>
+        <div class="loading">در حال ارسال...</div>
+    </div>
+
+    <!-- Popup Dialog -->
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <div class="icon"></div>
+            <h2></h2>
+            <p></p>
+            <button onclick="closePopup()">تایید</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('feedbackForm');
+        const loading = document.querySelector('.loading');
+        const overlay = document.getElementById('overlay');
+
+        // Replace with your Google Apps Script Web App URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzKilfm08xx8yqvhtjYoJgsPFz9FgzZaoR7ITFOvbKqbw4JUKnPQiHjFBbETnzmnQbphA/exec';
+
+        function showPopup(success, message) {
+            const popup = document.querySelector('.popup');
+            popup.querySelector('h2').textContent = success ? 'موفق' : 'خطا';
+            popup.querySelector('p').textContent = message;
+            popup.querySelector('.icon').innerHTML = success ? '✅' : '❌';
+            popup.querySelector('p').className = success ? 'success' : 'error';
+            overlay.style.display = 'flex';
+        }
+
+        function closePopup() {
+            overlay.style.display = 'none';
+            if (overlay.querySelector('.success')) {
+                form.reset();
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loading.style.display = 'block';
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showPopup(true, 'نظر شما با موفقیت ثبت شد. با تشکر از مشارکت شما.');
+                } else {
+                    throw new Error('خطا در ارسال فرم');
+                }
+            } catch (error) {
+                showPopup(false, 'متاسفانه خطایی رخ داد. لطفا دوباره تلاش کنید.');
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
